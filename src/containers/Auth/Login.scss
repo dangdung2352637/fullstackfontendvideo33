@@ -27,6 +27,15 @@
       .login-input {
         margin: 7px 0;
         border-color: red;
+        .custom-input-password{
+          position: relative;
+          i{
+            position: absolute;
+            right: 6px;
+            top: 11px;
+            cursor: pointer;
+          }
+        }
       }
       .btn-login {
         width: 100%;
