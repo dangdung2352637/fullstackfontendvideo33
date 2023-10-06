@@ -1,0 +1,10 @@
+// export { default as adminService } from './adminService';
+// export { default as userService } from './userService';
+import { stringify } from "react-auth-wrapper/helpers";
+import axios from "../axios";
+
+const handleLoginApi = (email, password) => {
+
+  return axios.post("/api/login", { email, password });
+};
+export { handleLoginApi };
