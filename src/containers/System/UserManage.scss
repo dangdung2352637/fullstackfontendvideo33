@@ -50,3 +50,36 @@
       color: orange !important;
     }
   }
+
+  .modal-user-container{
+    .modal-header{
+      button {
+        background-color: transparent !important;
+        border: none;
+        color: white;
+        font-size: 20px;
+      }
+    }
+    .modal-user-body{
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      flex-wrap:wrap ;
+      .input-container{
+        display: flex;
+        flex-direction: column;
+        width: 48%;
+
+        &.max-width-input{
+          width: 100%;
+        }
+  
+        input{
+          border: 1px solid black;
+          height: 23px;
+          border-radius: 3px;
+          padding: 0 5px;
+        }
+      }
+    }
+  }

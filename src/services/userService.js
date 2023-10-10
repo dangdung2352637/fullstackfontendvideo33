@@ -9,7 +9,6 @@ const handleLoginApi = (email, password) => {
 };
 
 const getAllUsers =  (inputId) => {
-console.log("1",1);
   return axios.get(`/api/get-all-users?id=${inputId}`)
 }
 
