@@ -44,9 +44,36 @@
       align-items: center;
       justify-content: space-around;
       padding-left: 7%;
-      .support{
-        i{
-            // font-size: 5px;
+      .language-vi{
+        span{
+          opacity: 0.2;
+          cursor: pointer;
+          color: rgb(0, 0, 0);
+          &:hover{
+            opacity: 1;
+          }
+        }
+        &.active{
+          span{
+            opacity: 1;
+            color: red;
+          }
+        }
+      }
+      .language-en{
+        span{
+          opacity: 0.2;
+          cursor: pointer;
+          color: rgb(0, 0, 0);
+          &:hover{
+            opacity: 1;
+          }
+        }
+        &.active{
+          span{
+            opacity: 1;
+            color: red;
+          }
         }
       }
     
