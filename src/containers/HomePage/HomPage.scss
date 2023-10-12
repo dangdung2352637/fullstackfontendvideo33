@@ -1,0 +1,116 @@
+
+.slick-prev {
+    border: 2px solid #d7d7d7 !important;
+    z-index: 1000;
+    // position: relative !important;
+    left: -12px !important ;
+    height: 48px !important;
+    width: 44px !important;
+    background: white !important;
+  }
+  .slick-next {
+    border: 2px solid #d7d7d7 !important;
+
+    right: -12px !important;
+    height: 48px !important;
+    width: 44px !important;
+    background: white !important;
+  }
+
+  .slick-prev:before {
+    font-family: FontAwesome !important;
+    color: #d7d7d7 !important;
+  }
+  .slick-next:before {
+    font-family: FontAwesome !important;
+    color: #d7d7d7 !important;
+  }
+  .section-share{
+    &.section-specialty{
+      
+      background: #f5f5f5;
+    }
+    &.section-outstanding-doctor{
+      background: #f5f5f5;
+
+    }
+    .section-body {
+      .section-customize {
+        .bg-img {
+          width: 423px;
+          height: 200px;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-color: #eee;
+          &.section-specialty{
+            background-image: url("../../assets/specialty/co-xuong-khop1.jpg");
+
+          }
+          &.section-medical-facility{
+            background-image: url('../../assets/medical-facility/121305-cham-cuu.jpg');
+          }
+          &.section-outstanding-doctor{
+            background-image: url('../../assets/outstanding-doctor/103848anh-dai-dien-bs.jpg');
+            width: 120px !important;
+            height: 120px !important;
+            border-radius: 50%;
+          }
+          &.section-handbook{
+            background-image: url('../../assets/handbook/113340-than-tiet-nieu.jpg');
+          }
+        }
+      }
+
+    }
+
+  }
+  .section-share {
+    height: 380px;
+    .section-container {
+      display: flex;
+      flex-direction: column;
+      margin: 0 100px;
+      padding-top: 2.5%;
+      .section-header {
+        height: 60px;
+        .title-section {
+          font-size: 26px;
+          font-weight: 600;
+        }
+        .btn-section {
+          float: right;
+          padding: 12px 18px;
+          border: none;
+          outline: none;
+          display: block;
+          background: #ebebeb;
+          color: black;
+          cursor: pointer;
+          text-transform: uppercase;
+          &:hover {
+            color: white;
+            background: #f7d800;
+          }
+        }
+      }
+
+    }
+  }
+
+  .section-outstanding-doctor{
+    .outer-bg{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .section-customize{
+    
+      padding-right: 6px;
+      .customize-border{
+        border: 1px solid orange;
+        // margin-top: 150px;
+      }
+    }
+  }
+  
