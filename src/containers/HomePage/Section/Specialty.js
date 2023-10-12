@@ -5,38 +5,52 @@ import { FormattedMessage } from "react-intl";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import specialty from "../../../assets/specialty/co-xuong-khop1.jpg";
 
 class Specialty extends Component {
   render() {
     let settings = {
       infinite: true,
+      dots: false,
       speed: 500,
-      slidesToShow: 1,
+      slidesToShow: 4,
       slidesToScroll: 1,
     };
     return (
       <div className="section-specialty">
-        <div className="specialty-content">
-          <Slider {...settings}>
-            <div className="img-customize">
-              <h3 >1</h3>
-            </div>
-            <div className="img-customize">
-              <h3>2</h3>
-            </div>
-            <div className="img-customize">
-              <h3>3</h3>
-            </div>
-            <div className="img-customize">
-              <h3>4</h3>
-            </div>
-            <div className="img-customize">
-              <h3>5</h3>
-            </div>
-            <div className="img-customize">
-              <h3>6</h3>
-            </div>
-          </Slider>
+        <div className="specialty-container">
+          <div className="specialty-header">
+            <span className="title-section">Chuyên khoa phổ biến </span>
+            <button className="btn-section">Xem thêm</button>
+          </div>
+          <div className="specialty-body">
+            <Slider {...settings}>
+              <div className="specialty-customize">
+                <div className="bg-img"></div>
+                <div> Cơ xương khớp1</div>
+              </div>
+              <div className="specialty-customize">
+                <div className="bg-img"></div>
+                <div> Cơ xương khớp1</div>
+              </div>
+              <div className="specialty-customize">
+                <div className="bg-img"></div>
+                <div> Cơ xương khớp1</div>
+              </div>
+              <div className="specialty-customize">
+                <div className="bg-img"></div>
+                <div> Cơ xương khớp1</div>
+              </div>
+              <div className="specialty-customize">
+                <div className="bg-img"></div>
+                <div> Cơ xương khớp1</div>
+              </div>
+              <div className="specialty-customize">
+                <div className="bg-img"></div>
+                <div> Cơ xương khớp1</div>
+              </div>
+            </Slider>
+          </div>
         </div>
       </div>
     );
