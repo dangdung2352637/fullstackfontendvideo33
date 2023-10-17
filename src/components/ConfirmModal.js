@@ -22,6 +22,7 @@ class ConfirmModal extends Component {
     };
 
     componentDidMount() {
+        console.log(123);
         document.addEventListener('keydown', this.handlerKeyDown);
     }
 
