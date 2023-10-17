@@ -38,6 +38,7 @@ class ConfirmModal extends Component {
     }
 
     onAcceptBtnClick = () => {
+        console.log(123456);
         const { contentOfConfirmModal } = this.props;
         if (contentOfConfirmModal.handleFunc) {
             contentOfConfirmModal.handleFunc(contentOfConfirmModal.dataFunc);
