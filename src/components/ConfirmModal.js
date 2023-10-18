@@ -22,7 +22,7 @@ class ConfirmModal extends Component {
     };
 
     componentDidMount() {
-        console.log(123);
+    
         document.addEventListener('keydown', this.handlerKeyDown);
     }
 
@@ -39,7 +39,7 @@ class ConfirmModal extends Component {
     }
 
     onAcceptBtnClick = () => {
-        console.log(123456);
+    
         const { contentOfConfirmModal } = this.props;
         if (contentOfConfirmModal.handleFunc) {
             contentOfConfirmModal.handleFunc(contentOfConfirmModal.dataFunc);
