@@ -1,32 +1,59 @@
 import actionTypes from "../actions/actionTypes";
 import { getAllCodeService } from "../../services/userService";
 
-
 const initialState = {
-    genders: [],
-    roles: [],
-    positions: []
+  isLoadingGender: false,
+  genders: [],
+  roles: [],
+  positions: [],
 };
 
 const adminReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_GENDER_START:
-        console.log("check state",action);
+      let copyState = { ...state };
+      copyState.isLoadingGender = true;
       return {
-        ...state,
-      };
-    case actionTypes.FETCH_GENDER_SUCCESS:
-        let copyState = {...state};
-        copyState.genders = action.data;
-        console.log("check copy initstate",initialState);
-    return {
         ...copyState,
       };
-
-      case actionTypes.FETCH_GENDER_FAIDED:
+    case actionTypes.FETCH_GENDER_SUCCESS:
+      state.genders = action.data;
+      state.isLoadingGender = false;
       return {
         ...state,
       };
+
+    case actionTypes.FETCH_GENDER_FAIDED:
+      state.isLoadingGender = false;
+      state.genders = [];
+      return {
+        ...state,
+      };
+
+      case actionTypes.FETCH_POSITION_SUCCESS:
+        state.positions = action.data;
+        return {
+          ...state,
+        };
+  
+      case actionTypes.FETCH_POSITION_FAIDED:
+        state.positions = [];
+        return {
+          ...state,
+        };
+
+        case actionTypes.FETCH_ROLE_START:
+          state.roles = action.data;
+          return {
+            ...state,
+          };
+    
+        case actionTypes.FETCH_ROLE_FAIDED:
+          state.roles = [];
+          return {
+            ...state,
+          };
+  
 
     default:
       return state;

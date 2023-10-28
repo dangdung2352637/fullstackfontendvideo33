@@ -1,12 +1,12 @@
 {
   "homeheader": {
-    "speciality": "medical specialist",
+    "speciality": "Medical specialist",
     "searchdoctor": "Find doctors by specialty",
     "health-facilities":"Health facilities",
     "select-rom": "Choose a hospital or clinic",
     "doctor": "Doctor",
     "select-doctor":"Select doctor",
-    "fee":"examination package",
+    "fee":"Examination package",
     "check-health": "General health check",
     "support":"Support",
     "welcome":"Welcome, "
@@ -15,10 +15,10 @@
     "title1":"MEDICAL FOUNDATION",
     "title2":"COMPREHENSIVE HEALTH CARE",
     "child1":"Specialized examination",
-    "child2":"remote examination",
+    "child2":"Remote examination",
     "child3":"General examination",
     "child4":"Medical tests",
-    "child5":"specialist examination",
+    "child5":"Specialist examination",
     "child6":"Dental examination"
   },
 
@@ -34,8 +34,8 @@
       "manage-clinic": "Manage clinics ",
       "specialty" : "Specialties",
       "manage-specialty": "Manage specialties",
-      "handbook": "handbook",
-      "manage-handbook": "handbook"
+      "handbook": "Handbook",
+      "manage-handbook": "Handbook"
     }
   },
   "manage-user": {
@@ -46,7 +46,7 @@
     "last-name": "Last name",
     "phone-number": "Phone number",
     "address": "Address",
-    "gender": "gender",
+    "gender": "Gender",
     "position": "Position",
     "role": "Role",
     "image": "Avata",

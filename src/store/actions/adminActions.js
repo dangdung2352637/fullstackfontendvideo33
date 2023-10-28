@@ -9,16 +9,16 @@ import { getAllCodeService } from "../../services/userService";
 export const fetchGenderStart = () => {
   return async (dispatch, getState) => {
     try {
+      dispatch({ type: actionTypes.FETCH_GENDER_START })
+      // dispatch({type: actionTypes.FETCH_GENDER_STAR});
       let res = await getAllCodeService("GENDER");
-      console.log(res);
       if (res && res.errCode === 0) {
         dispatch(fetchGenderSuccess(res.data));
-        console.log(1);
       } else {
         dispatch(fetchGenderFailed());
       }
     } catch (e) {
-        dispatch(fetchGenderFailed());
+      dispatch(fetchGenderFailed());
       console.log(e);
     }
   };
@@ -31,6 +31,61 @@ export const fetchGenderSuccess = (genderData) => ({
 
 export const fetchGenderFailed = () => ({
   type: actionTypes.FETCH_GENDER_FAIDED,
+});
+
+export const fetchPositionStart = () => {
+  return async (dispatch, getState) => {
+    try {
+      // dispatch({type: actionTypes.FETCH_GENDER_STAR});
+      let res = await getAllCodeService("POSITION");
+      console.log(res);
+      if (res && res.errCode === 0) {
+        dispatch(fetchPositionSuccess(res.data));
+      } else {
+        dispatch(fetchPosittionFailed());
+      }
+    } catch (e) {
+      dispatch(fetchPosittionFailed());
+      console.log('fetchPosittionFailed ERROR',e); 
+    }
+  };
+};
+
+
+export const fetchPositionSuccess = (positionData) => ({
+  type: actionTypes.FETCH_POSITION_SUCCESS,
+  data: positionData,
+});
+
+export const fetchPosittionFailed = () => ({
+  type: actionTypes.FETCH_POSITION_FAIDED,
+});
+
+export const fetchRoleStart = () => {
+  return async (dispatch, getState) => {
+    try {
+      // dispatch({type: actionTypes.FETCH_GENDER_STAR});
+      let res = await getAllCodeService("ROLE");
+      console.log(res);
+      if (res && res.errCode === 0) {
+        dispatch(fetchRoleSuccess(res.data));
+      } else {
+        dispatch(fetchRoleFailed());
+      }
+    } catch (e) {
+      dispatch(fetchRoleFailed());
+      console.log('fetchRoleFailed ERROR',e); 
+    }
+  };
+};
+
+export const fetchRoleSuccess = (roleData) => ({
+  type: actionTypes.FETCH_ROLE_START,
+  data: roleData,
+});
+
+export const fetchRoleFailed = () => ({
+  type: actionTypes.FETCH_ROLE_FAIDED,
 });
 
 //start doing end
