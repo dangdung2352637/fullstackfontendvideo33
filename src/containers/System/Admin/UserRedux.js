@@ -7,7 +7,7 @@ import * as actions from "../../../store/actions";
 import "./UserRedux.scss";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css"; // This only needs to be imported once in your app
-
+import TableManageUser from "./TableManageUser";
 class UserRedux extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +17,7 @@ class UserRedux extends Component {
       roleArr: [],
       previewImgURL: "",
       isOpen: false,
+
 
       email: "",
       password: "",
@@ -54,7 +55,7 @@ class UserRedux extends Component {
       let arrGenders = this.props.genderRedux;
       this.setState({
         genderArr: this.props.genderRedux,
-        gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : ''
+        gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : "",
       });
     }
 
@@ -62,7 +63,7 @@ class UserRedux extends Component {
       let arrRoles = this.props.roleRedux;
       this.setState({
         roleArr: this.props.roleRedux,
-        role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : ''
+        role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : "",
       });
     }
 
@@ -70,8 +71,23 @@ class UserRedux extends Component {
       let arrPositions = this.props.positionRedux;
       this.setState({
         positionArr: this.props.positionRedux,
-        position: arrPositions && arrPositions.length > 0 ? arrPositions[0].key : ''
+        position:
+          arrPositions && arrPositions.length > 0 ? arrPositions[0].key : "",
       });
+    }
+    if(prevProps.listUsers !== this.props.listUsers){
+      this.setState({
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+        phoneNumber: "",
+        address: "",
+        gender: "",
+        position: "",
+        role: "",
+        avatar: "",
+      })
     }
   }
 
@@ -96,40 +112,41 @@ class UserRedux extends Component {
 
   checkValidateInput = () => {
     let isValid = true;
-    let arrCheck = [      'email',
-      'password',
-      'firstName',
-      'lastName',
-      'phoneNumber',
-      'address',
-      ]
-      for(let i=0 ; i< arrCheck.length; i++){
-        if(!this.state[arrCheck[i]]){
-          isValid = false;
-          alert('this input is required ' + arrCheck[i])
-          break;
-        }
+    let arrCheck = [
+      "email",
+      "password",
+      "firstName",
+      "lastName",
+      "phoneNumber",
+      "address",
+    ];
+    for (let i = 0; i < arrCheck.length; i++) {
+      if (!this.state[arrCheck[i]]) {
+        isValid = false;
+        alert("this input is required " + arrCheck[i]);
+        break;
       }
-  }
+    }
+  };
 
   handleSaveUser = () => {
-   let isValid = this.checkValidateInput();
-   if(isValid === false) return;
+    let isValid = this.checkValidateInput();
+    if (isValid === false) return;
 
-   //fire redux action
-this.props.createNewUser({
-  email: this.state.email,
-  password: this.state.password,
-  firstName: this.state.firstName,
-  lastName: this.state.lastName,
-  address: this.state.address,
-  phonenumber: this.state.phoneNumber,
-  gender: this.state.gender,
-  image: this.state.image,
-  roleId: this.state.role,
-  positionId:this.state.position
-})
-    console.log('hoi dan it before submit chek state: ', this.state);
+
+    //fire redux action
+    this.props.createNewUser({
+      email: this.state.email,
+      password: this.state.password,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      address: this.state.address,
+      phonenumber: this.state.phoneNumber,
+      gender: this.state.gender,
+      image: this.state.image,
+      roleId: this.state.role,
+      positionId: this.state.position,
+    });
   };
 
   onChangeInput = (event, id) => {
@@ -159,7 +176,7 @@ this.props.createNewUser({
       gender,
       position,
       role,
-      avatar
+      avatar,
     } = this.state;
 
     return (
@@ -306,11 +323,12 @@ this.props.createNewUser({
                 <label>
                   <FormattedMessage id="manage-user.role" />
                 </label>
-                <select className="form-control"
-                               value={role}
-                               onChange={(event) => {
-                                 this.onChangeInput(event, "role");
-                               }}
+                <select
+                  className="form-control"
+                  value={role}
+                  onChange={(event) => {
+                    this.onChangeInput(event, "role");
+                  }}
                 >
                   {roles &&
                     roles.length > 0 &&
@@ -356,6 +374,9 @@ this.props.createNewUser({
                   <FormattedMessage id="manage-user.save" />
                 </button>
               </div>
+              <div className="col-12">
+                <TableManageUser />
+              </div>
             </div>
           </div>
         </div>
@@ -377,6 +398,7 @@ const mapStateToProps = (state) => {
     roleRedux: state.admin.roles,
     positionRedux: state.admin.positions,
     isLoadingGender: state.admin.isLoadingGender,
+    listUsers: state.admin.users   
   };
 };
 
@@ -385,7 +407,9 @@ const mapDispatchToProps = (dispatch) => {
     getGenderStart: () => dispatch(actions.fetchGenderStart()),
     getPositionStart: () => dispatch(actions.fetchPositionStart()),
     getRoleStart: () => dispatch(actions.fetchRoleStart()),
-    createNewUser: (data) => dispatch(actions.createNewUser(data))
+    createNewUser: (data) => dispatch(actions.createNewUser(data)),
+    fetchUserRedux: () => dispatch(actions.fetchAllUsersStart()),
+
 
     // processLogout: () => dispatch(actions.processLogout()),
     // changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language))
