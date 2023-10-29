@@ -1,5 +1,5 @@
 import actionTypes from "./actionTypes";
-import { getAllCodeService } from "../../services/userService";
+import { getAllCodeService,createNewUserService } from "../../services/userService";
 // import { data } from 'jquery';
 
 // export const fetchGenderStart = () => ({
@@ -9,7 +9,7 @@ import { getAllCodeService } from "../../services/userService";
 export const fetchGenderStart = () => {
   return async (dispatch, getState) => {
     try {
-      dispatch({ type: actionTypes.FETCH_GENDER_START })
+      dispatch({ type: actionTypes.FETCH_GENDER_START });
       // dispatch({type: actionTypes.FETCH_GENDER_STAR});
       let res = await getAllCodeService("GENDER");
       if (res && res.errCode === 0) {
@@ -30,7 +30,7 @@ export const fetchGenderSuccess = (genderData) => ({
 });
 
 export const fetchGenderFailed = () => ({
-  type: actionTypes.FETCH_GENDER_FAIDED,
+  type: actionTypes.FETCH_GENDER_FAILDED,
 });
 
 export const fetchPositionStart = () => {
@@ -46,11 +46,10 @@ export const fetchPositionStart = () => {
       }
     } catch (e) {
       dispatch(fetchPosittionFailed());
-      console.log('fetchPosittionFailed ERROR',e); 
+      console.log("fetchPosittionFailed ERROR", e);
     }
   };
 };
-
 
 export const fetchPositionSuccess = (positionData) => ({
   type: actionTypes.FETCH_POSITION_SUCCESS,
@@ -74,7 +73,7 @@ export const fetchRoleStart = () => {
       }
     } catch (e) {
       dispatch(fetchRoleFailed());
-      console.log('fetchRoleFailed ERROR',e); 
+      console.log("fetchRoleFailed ERROR", e);
     }
   };
 };
@@ -89,3 +88,31 @@ export const fetchRoleFailed = () => ({
 });
 
 //start doing end
+
+
+export const createNewUser = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      // dispatch({type: actionTypes.FETCH_GENDER_STAR});
+      let res = await createNewUserService(data) ;
+      console.log(res);
+      if (res && res.errCode === 0) {
+        console.log('hoi dan it check create redux',res);
+        dispatch(saveUserSuccess());
+      } else {
+        dispatch(saveUserFailed());
+      }
+    } catch (e) {
+      dispatch(saveUserFailed());
+      console.log("saveUserFailed ERROR", e);
+    }
+  };
+}
+ 
+export const saveUserSuccess = () => ({
+  type: 'CREATE_USER_SUCCESS'
+})
+
+export const saveUserFailed = () => ({
+  type: 'CREATE_USER_FAILDED'
+})

@@ -23,37 +23,36 @@ const adminReducer = (state = initialState, action) => {
         ...state,
       };
 
-    case actionTypes.FETCH_GENDER_FAIDED:
+    case actionTypes.FETCH_GENDER_FAILDED:
       state.isLoadingGender = false;
       state.genders = [];
       return {
         ...state,
       };
 
-      case actionTypes.FETCH_POSITION_SUCCESS:
-        state.positions = action.data;
-        return {
-          ...state,
-        };
-  
-      case actionTypes.FETCH_POSITION_FAIDED:
-        state.positions = [];
-        return {
-          ...state,
-        };
+    case actionTypes.FETCH_POSITION_SUCCESS:
+      state.positions = action.data;
+      return {
+        ...state,
+      };
 
-        case actionTypes.FETCH_ROLE_START:
-          state.roles = action.data;
-          return {
-            ...state,
-          };
-    
-        case actionTypes.FETCH_ROLE_FAIDED:
-          state.roles = [];
-          return {
-            ...state,
-          };
-  
+    case actionTypes.FETCH_POSITION_FAIDED:
+      state.positions = [];
+      return {
+        ...state,
+      };
+
+    case actionTypes.FETCH_ROLE_START:
+      state.roles = action.data;
+      return {
+        ...state,
+      };
+
+    case actionTypes.FETCH_ROLE_FAIDED:
+      state.roles = [];
+      return {
+        ...state,
+      };
 
     default:
       return state;
