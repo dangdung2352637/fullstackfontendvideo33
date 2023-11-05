@@ -198,7 +198,7 @@ class UserRedux extends Component {
       address: user.address,
       gender: user.gender,
       role: user.roleId,
-      position: user.roleId,
+      position: user.positionId,
       avatar:'',
       previewImgURL:imageBase64,
       action: CRUD_ACTION.EDIT,
@@ -212,7 +212,6 @@ class UserRedux extends Component {
     let positions = this.state.positionArr;
     let language = this.props.language;
     let isGetGenderReact = this.props.isLoadingGender;
-    console.log("hoidanit check state component", this.state);
 
     let {
       email,

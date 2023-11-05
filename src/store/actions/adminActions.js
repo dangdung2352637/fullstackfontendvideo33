@@ -1,5 +1,5 @@
 import actionTypes from "./actionTypes";
-import { getAllCodeService,createNewUserService ,getAllUsers,deleteUserService, editUserService } from "../../services/userService";
+import { getAllCodeService,createNewUserService ,getAllUsers,deleteUserService, editUserService, getTopDoctorHomeService } from "../../services/userService";
 import { toast } from "react-toastify";
 // import { data } from 'jquery';
 
@@ -39,7 +39,6 @@ export const fetchPositionStart = () => {
     try {
       // dispatch({type: actionTypes.FETCH_GENDER_STAR});
       let res = await getAllCodeService("POSITION");
-      console.log(res);
       if (res && res.errCode === 0) {
         dispatch(fetchPositionSuccess(res.data));
       } else {
@@ -66,7 +65,6 @@ export const fetchRoleStart = () => {
     try {
       // dispatch({type: actionTypes.FETCH_GENDER_STAR});
       let res = await getAllCodeService("ROLE");
-      console.log(res);
       if (res && res.errCode === 0) {
         dispatch(fetchRoleSuccess(res.data));
       } else {
@@ -126,7 +124,8 @@ export const fetchAllUsersStart = () => {
     try {
       // dispatch({type: actionTypes.FETCH_GENDER_STAR});
       let res = await getAllUsers("ALL");
-      console.log(res);
+      let res1 = await getTopDoctorHomeService(4)
+      console.log("check res1" , res1);
       if (res && res.errCode === 0) {
       
         dispatch(fetchAllUsersSuccess(res.users.reverse()));
